@@ -31,7 +31,9 @@ class SailboatTest {
     }
 
     @Test
-    void testAlleOnsdage() {
+    void save5racesMay2025() {
+        //Dette har ikke noget med test at gøre. Vi afprøver bare noget kode hernede i sandkassen.
+        //Her opretter vi feks et race for hver onsdag i maj måned 2025
         List<LocalDate> lstWed = Stream.iterate(LocalDate.of(2025, 5, 1), date -> date.plusDays(1))
                 .limit(31)
                 .filter(date -> date.getDayOfWeek() == DayOfWeek.WEDNESDAY)
@@ -45,6 +47,5 @@ class SailboatTest {
         });
 
     }
-
 
 }
