@@ -1,9 +1,10 @@
 package org.example.kapsejlads23a.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 public class Sailboat {
@@ -14,6 +15,17 @@ public class Sailboat {
     private BoatType boatType;
     private String name;
 
+    @OneToMany(mappedBy = "sailboat")
+    @JsonBackReference
+    private Set<Result> results = new HashSet<>();
+
+    public Set<Result> getResults() {
+        return results;
+    }
+
+    public void setResults(Set<Result> results) {
+        this.results = results;
+    }
 
     public int getBoatID() {
         return boatID;
